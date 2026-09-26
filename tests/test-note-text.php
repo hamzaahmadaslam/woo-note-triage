@@ -8,10 +8,12 @@
 use Woo_Note_Triage\Note_Text;
 
 test(
-	'cleaning keeps the words and drops control characters, direction marks and extra space',
+	'cleaning keeps the words and drops control characters, invisible characters, direction marks and extra space',
 	static function (): void {
-		$raw = "  Leave it at the back door\r\n\r\n\r\n\tthanks\x07 \u{202E}reversed\u{202C}  &amp; size &lt; 10  ";
+		$raw = "  Leave it at the back door\r\n\r\n\r\n\tthanks\x07 \u{202E}reversed\u{202C}\u{061C}  &amp; size &lt; 10  ";
 		assert_same( "Leave it at the back door\n\nthanks reversed & size < 10", Note_Text::clean( $raw ) );
+		// Tag characters that spell "ignore" after the thanks: invisible on screen, readable by a model.
+		assert_same( 'Thanks!', Note_Text::clean( "Thanks!\u{E0069}\u{E0067}\u{E006E}\u{E006F}\u{E0072}\u{E0065}" ), 'tag characters' );
 	}
 );
 
@@ -29,6 +31,11 @@ test(
 		foreach ( $cases as $raw => $expected ) {
 			assert_same( $expected, Note_Text::clean( $raw ), $raw );
 		}
+		// Digits of every script count: full-width digits and separators, as Japanese and Chinese input methods type
+		// them, and Arabic-Indic digits. Short numbers in those digits stay.
+		assert_same( '電話<number>まで', Note_Text::clean( '電話０９０－１２３４－５６７８まで' ), 'full-width digits' );
+		assert_same( 'Call <number>', Note_Text::clean( 'Call ٠٣٠٠١٢٣٤٥٦٧' ), 'Arabic-Indic digits' );
+		assert_same( 'Room ３０４, on ２０２６－１０－０５', Note_Text::clean( 'Room ３０４, on ２０２６－１０－０５' ), 'short full-width numbers' );
 	}
 );
 

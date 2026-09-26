@@ -206,8 +206,8 @@ agent would include the site's address. Each request carries:
 - your key, in the `Authorization` header;
 - the model name and the two fixed questions (a full body is in [`examples/request.json`](examples/request.json));
 - the customer's note as the state, cleaned on your server first: email addresses become `<email>`, numbers of nine
-  or more digits (phone, card and account numbers) become `<number>`, control characters and text-direction marks
-  are removed, and at most 2,000 characters are sent.
+  or more digits (phone, card and account numbers) become `<number>`, control characters, invisible characters and
+  text-direction marks are removed, and at most 2,000 characters are sent.
 
 Nothing else about the order or the customer is sent: no name, email address, postal address, phone field, product,
 total, order number or site address. The plugin makes no other network requests, such as telemetry or update checks.
