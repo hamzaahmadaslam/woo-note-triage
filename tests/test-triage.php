@@ -178,3 +178,20 @@ test(
 		assert_same( 1, count( $calls ), 'requests' );
 	}
 );
+
+test(
+	'an error after an earlier answer removes its category, so the order leaves that filter',
+	static function (): void {
+		save_key();
+		$order  = new WC_Order( 7, 'The last two arrived cracked' );
+		$triage = triage_with( array( fixture( 'response-complaint.json' ), 401 ), $calls );
+		$triage->run_job( 7 );
+		assert_same( 'complaint', $order->meta[ Meta::CATEGORY ] );
+		// The note changes, as when a customer pays again after a failed payment and WooCommerce reuses the order,
+		// and this time the key is refused.
+		$order->customer_note = 'Please change the colour to navy';
+		$triage->run_job( 7 );
+		assert_same( 'error', $order->meta[ Meta::STATUS ] );
+		assert_same( false, isset( $order->meta[ Meta::CATEGORY ] ), 'the category of the earlier answer' );
+	}
+);

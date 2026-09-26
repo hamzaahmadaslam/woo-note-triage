@@ -8,6 +8,8 @@
   and plus signs now join the digits of a number as their ASCII forms do.
 - Invisible tag characters (U+E0000 to U+E007F), which can carry text that a model reads but a person never sees,
   and the Arabic letter mark are removed from notes before they are sent.
+- When an order's note changes and the new note cannot be triaged, the category of the earlier answer is removed.
+  Before, the orders list filter still listed the order under that category while its column said "Not triaged".
 
 ## 1.0.0 - 2026-09-26
 

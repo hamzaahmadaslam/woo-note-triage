@@ -214,7 +214,8 @@ final class Triage {
 
 	/**
 	 * Tries again later for a retryable error. Otherwise, or after the last attempt, records the error on the
-	 * order (the orders list shows "Not triaged" with the message) and in the WooCommerce log.
+	 * order (the orders list shows "Not triaged" with the message) and in the WooCommerce log, and removes the
+	 * category of any earlier answer.
 	 *
 	 * @param \WC_Order $order   The order.
 	 * @param Jev_Error $error   What went wrong.
@@ -235,6 +236,9 @@ final class Triage {
 		}
 		$order->update_meta_data( Meta::STATUS, Decision::ERROR );
 		$order->update_meta_data( Meta::ERROR, $error->getMessage() );
+		// Left in place, an earlier answer's category would keep the order under that category in the orders list
+		// filter while its column says "Not triaged".
+		$order->delete_meta_data( Meta::CATEGORY );
 		$order->save();
 		if ( function_exists( 'wc_get_logger' ) ) {
 			// The order number and the message only: never the note or the key.

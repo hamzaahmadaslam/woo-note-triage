@@ -244,7 +244,7 @@ prints the estimate for your own orders, and after a run the report gives the in
 
 ## Development
 
-`php tests/run.php` runs 47 tests with a small runner and nothing to install. They use stand-ins for the WordPress,
+`php tests/run.php` runs 48 tests with a small runner and nothing to install. They use stand-ins for the WordPress,
 WooCommerce, Action Scheduler and WP-CLI functions the plugin calls and a fixture in place of TypeSafe, and any
 attempt to reach the network fails the test. `php examples/build.php` rebuilds the files in `examples/`, and a test
 checks that they match the code. CI lints every file and runs the tests on PHP 8.1, 8.2, 8.3 and 8.4.
