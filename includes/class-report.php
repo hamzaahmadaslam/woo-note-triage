@@ -15,9 +15,6 @@ defined( 'ABSPATH' ) || exit;
  */
 final class Report {
 
-	/** TypeSafe's price for jev-1.13 in US dollars per input token ($0.042 per million). Output tokens are free. */
-	public const PRICE_PER_TOKEN = 0.042 / 1000000;
-
 	/**
 	 * The report after a run.
 	 *
@@ -35,12 +32,11 @@ final class Report {
 			$lines[] = sprintf( 'Stopped at --limit=%d.', (int) $run['limit'] );
 		}
 		$lines[] = sprintf(
-			'Jev: model %s, %s %s, %s input tokens (about %s)',
+			'Jev: model %s, %s %s, %s input tokens',
 			'' !== (string) $run['model'] ? $run['model'] : 'unknown',
 			number_format( (int) $run['requests'] ),
 			1 === (int) $run['requests'] ? 'request' : 'requests',
-			number_format( (int) $run['input_tokens'] ),
-			self::cost( (int) $run['input_tokens'] )
+			number_format( (int) $run['input_tokens'] )
 		);
 		$lines[] = sprintf( 'Threshold %s: %d triaged, %d for review', Decision::number( (float) $run['threshold'] ), count( $triaged ), count( $review ) );
 
@@ -82,12 +78,11 @@ final class Report {
 			$lines[] = sprintf( 'Stopped at --limit=%d.', (int) $run['limit'] );
 		}
 		$lines[] = sprintf(
-			'Would send %s %s to %s, one per order: about %s input tokens (about %s)',
+			'Would send %s %s to %s, one per order: about %s input tokens',
 			number_format( count( $items ) ),
 			1 === count( $items ) ? 'request' : 'requests',
 			Jev_Client::ENDPOINT,
-			number_format( $tokens ),
-			self::cost( $tokens )
+			number_format( $tokens )
 		);
 		$lines[] = sprintf( 'Model %s, threshold %s', $run['model'], Decision::number( (float) $run['threshold'] ) );
 		$lines[] = '';
@@ -163,19 +158,6 @@ final class Report {
 			'orders'                 => $orders,
 		);
 		return Questions::json( $data, true ) . "\n";
-	}
-
-	/**
-	 * Roughly what a number of input tokens costs, such as "$0.00035".
-	 *
-	 * @param int $tokens Input tokens.
-	 */
-	public static function cost( int $tokens ): string {
-		$dollars = $tokens * self::PRICE_PER_TOKEN;
-		if ( $dollars < 0.001 ) {
-			return '$' . number_format( $dollars, 5, '.', '' );
-		}
-		return '$' . number_format( $dollars, $dollars < 1 ? 4 : 2, '.', '' );
 	}
 
 	/**

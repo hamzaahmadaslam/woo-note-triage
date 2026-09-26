@@ -150,7 +150,7 @@ wp woo-note-triage backfill --days=30
 ```text
 woo-note-triage 1.0.0
 Orders created in the last 30 days: 11. With a customer note: 10. Already triaged, skipped: 0. Sent: 10.
-Jev: model fixture, 10 requests, 11,913 input tokens (about $0.00050)
+Jev: model fixture, 10 requests, 11,913 input tokens
 Threshold 0.80: 7 triaged, 3 for review
 
 Triaged, most urgent first
@@ -236,12 +236,11 @@ the services that receive customer data, add TypeSafe.
 - Jobs run through Action Scheduler, which relies on WP-Cron. On a site with WP-Cron turned off and no server cron,
   the jobs wait.
 
-## Cost
+## Token use
 
-TypeSafe charges $0.042 per million input tokens for jev-1.13, and output tokens are free. The plugin estimates about
-1,190 input tokens per note, about 1,160 of them for the two questions. That is about $0.00005 per order with a note,
-or about $0.05 for 1,000 such orders. The example's 10 notes come to about 11,900 tokens, about $0.0005. `--dry-run`
-prints the estimate for your own orders.
+The plugin estimates about 1,190 input tokens for each order with a note, about 1,160 of them for the two questions,
+so 1,000 such orders come to about 1.19 million. The example's 10 notes come to about 11,900 tokens. `--dry-run`
+prints the estimate for your own orders, and after a run the report gives the input tokens TypeSafe counted.
 
 ## Development
 

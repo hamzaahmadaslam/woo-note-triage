@@ -1,6 +1,6 @@
 woo-note-triage 1.0.0 (dry run: nothing is sent and no order changes)
 Orders created in the last 30 days: 11. With a customer note: 10. Already triaged, skipped: 0.
-Would send 10 requests to https://api.typesafe.ai/v1/systemone, one per order: about 11,913 input tokens (about $0.00050)
+Would send 10 requests to https://api.typesafe.ai/v1/systemone, one per order: about 11,913 input tokens
 Model jev-latest, threshold 0.80
 
 Each request body is {"model", "state", "questions"}. The state is the cleaned note and nothing else.

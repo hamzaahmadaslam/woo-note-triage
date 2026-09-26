@@ -1,6 +1,6 @@
 woo-note-triage 1.0.0
 Orders created in the last 30 days: 11. With a customer note: 10. Already triaged, skipped: 0. Sent: 10.
-Jev: model fixture, 10 requests, 11,913 input tokens (about $0.00050)
+Jev: model fixture, 10 requests, 11,913 input tokens
 Threshold 0.80: 7 triaged, 3 for review
 
 Triaged, most urgent first

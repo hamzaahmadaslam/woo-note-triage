@@ -86,10 +86,20 @@ test(
 );
 
 test(
-	'costs are printed at $0.042 per million input tokens',
+	'reports give token counts and no cost: no dollar amount in any output and no price constant in the plugin',
 	static function (): void {
-		assert_same( '$0.00005', Report::cost( 1190 ) );
-		assert_same( '$0.0420', Report::cost( 1000000 ) );
-		assert_same( '$4.20', Report::cost( 100000000 ) );
+		$examples = woo_note_triage_examples();
+		assert_contains( "Jev: model fixture, 10 requests, 11,913 input tokens\n", $examples['report.txt'] );
+		assert_contains( "one per order: about 11,913 input tokens\n", $examples['dry-run.txt'] );
+		foreach ( $examples as $name => $content ) {
+			assert_same( 0, preg_match( '/\$\s?\d/', $content ), "a dollar amount in examples/$name" );
+		}
+		foreach ( get_declared_classes() as $class ) {
+			if ( str_starts_with( $class, 'Woo_Note_Triage\\' ) ) {
+				$constants = array_keys( ( new ReflectionClass( $class ) )->getConstants() );
+				assert_same( array(), preg_grep( '/PRICE|COST/i', $constants ), "price constants in $class" );
+			}
+		}
+		assert_same( false, method_exists( Report::class, 'cost' ), 'Report::cost()' );
 	}
 );
