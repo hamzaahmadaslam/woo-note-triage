@@ -134,7 +134,7 @@ test(
 		}
 		cli_with( array( fixture( 'response-complaint.json' ) ), $calls )->backfill( array(), array( 'limit' => '1' ) );
 		assert_same( 1, count( $calls ), 'requests' );
-		assert_contains( 'Stopped at --limit=1.', cli_output() );
+		assert_contains( "Already triaged, skipped: 0. Sent: 1.\nStopped at --limit=1. Older orders were not looked at and are not counted above.\n", cli_output() );
 		assert_contains( '#53  ', cli_output() );
 	}
 );

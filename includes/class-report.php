@@ -29,7 +29,7 @@ final class Report {
 		$lines   = array( 'woo-note-triage ' . $run['version'] );
 		$lines[] = self::counts( $run ) . sprintf( ' Sent: %d.', count( $rows ) );
 		if ( ! empty( $run['limit_reached'] ) ) {
-			$lines[] = sprintf( 'Stopped at --limit=%d.', (int) $run['limit'] );
+			$lines[] = self::limit_line( $run );
 		}
 		$lines[] = sprintf(
 			'Jev: model %s, %s %s, %s input tokens',
@@ -75,7 +75,7 @@ final class Report {
 			self::counts( $run ),
 		);
 		if ( ! empty( $run['limit_reached'] ) ) {
-			$lines[] = sprintf( 'Stopped at --limit=%d.', (int) $run['limit'] );
+			$lines[] = self::limit_line( $run );
 		}
 		$lines[] = sprintf(
 			'Would send %s %s to %s, one per order: about %s input tokens',
@@ -174,6 +174,15 @@ final class Report {
 			number_format( (int) $run['with_note'] ),
 			number_format( (int) $run['skipped'] )
 		);
+	}
+
+	/**
+	 * The line under the counts when --limit stopped the search early: the counts leave out the older orders.
+	 *
+	 * @param array $run The run facts.
+	 */
+	private static function limit_line( array $run ): string {
+		return sprintf( 'Stopped at --limit=%d. Older orders were not looked at and are not counted above.', (int) $run['limit'] );
 	}
 
 	/**

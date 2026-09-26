@@ -10,6 +10,7 @@
   and the Arabic letter mark are removed from notes before they are sent.
 - When an order's note changes and the new note cannot be triaged, the category of the earlier answer is removed.
   Before, the orders list filter still listed the order under that category while its column said "Not triaged".
+- `wp woo-note-triage backfill --limit` now says that the counts leave out the older orders it did not look at.
 
 ## 1.0.0 - 2026-09-26
 

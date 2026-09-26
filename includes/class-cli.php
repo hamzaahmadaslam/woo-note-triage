@@ -68,7 +68,7 @@ final class CLI {
 	 * ## OPTIONS
 	 *
 	 * [--days=<days>]
-	 * : Look at orders created in the last this many days.
+	 * : Look at orders created in the last <days> days.
 	 * ---
 	 * default: 30
 	 * ---
