@@ -73,11 +73,11 @@ define( 'TYPESAFE_API_KEY', 'your key' );
 
 WooCommerce > Note triage, for users who can manage WooCommerce:
 
-| Setting              | What it does                                                                                              |
-| -------------------- | --------------------------------------------------------------------------------------------------------- |
-| New orders           | Triage the note of every new order (on by default)                                                        |
-| TypeSafe API key     | Saved as an option that is not autoloaded; after saving, only its last four characters are shown          |
-| Confidence threshold | Category confidence from 0 to 1 needed to label an order (default 0.80)                                   |
+| Setting              | What it does                                                                                                   |
+| -------------------- | -------------------------------------------------------------------------------------------------------------- |
+| New orders           | Triage the note of every new order (on by default)                                                             |
+| TypeSafe API key     | Saved as an option that is not autoloaded; after saving, only its last four characters are shown               |
+| Confidence threshold | Category confidence from 0 to 1 needed to label an order (default 0.80)                                        |
 | Model                | `jev-latest` by default; name a version such as `jev-1.13.0` to keep answers steady after tuning the threshold |
 
 A `TYPESAFE_API_KEY` constant or environment variable takes precedence over the saved key, and a `TYPESAFE_MODEL`
@@ -108,14 +108,14 @@ wp woo-note-triage backfill --days=30              # send and record
 wp woo-note-triage backfill --days=7 --threshold=0.9 --format=json
 ```
 
-| Option            | What it does                                                                                   |
-| ----------------- | ---------------------------------------------------------------------------------------------- |
-| `--days=<n>`      | Orders created in the last n days (default 30)                                                 |
+| Option            | What it does                                                                                           |
+| ----------------- | ------------------------------------------------------------------------------------------------------ |
+| `--days=<n>`      | Orders created in the last n days (default 30)                                                         |
 | `--dry-run`       | Print the questions, the orders that would be sent and a token estimate; needs no key, changes nothing |
-| `--threshold=<p>` | Category confidence from 0 to 1 for this run (default: the setting)                            |
-| `--limit=<n>`     | Send at most n orders, newest first                                                            |
-| `--force`         | Ask again about orders whose note was already triaged                                          |
-| `--format=<f>`    | `text` (default) or `json`                                                                     |
+| `--threshold=<p>` | Category confidence from 0 to 1 for this run (default: the setting)                                    |
+| `--limit=<n>`     | Send at most n orders, newest first                                                                    |
+| `--force`         | Ask again about orders whose note was already triaged                                                  |
+| `--format=<f>`    | `text` (default) or `json`                                                                             |
 
 The command records results the same way as for new orders. It stops at the first error from TypeSafe and prints
 what it did so far; running it again skips the orders that are done.
@@ -180,6 +180,8 @@ For review, most urgent first
        Category: fraud signal 0.68, delivery instruction 0.30, question 0.02
        Urgency: before shipping 0.71, reply soon 0.24, when packing 0.05
        Review: category confidence 0.62 is below the threshold 0.80
+
+[...]
 ```
 
 Order #1009 sits exactly at the threshold and is triaged; #1010 is just below it and waits for review. The private
