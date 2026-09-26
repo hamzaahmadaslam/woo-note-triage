@@ -220,6 +220,8 @@ the services that receive customer data, add TypeSafe.
 
 ## Limits
 
+- This first release is tested with stand-ins for WordPress, WooCommerce, Action Scheduler and WP-CLI, not yet on a
+  live store. Try it on a staging copy first, with both the classic and the block checkout, and with HPOS on and off.
 - Jev sees the note only. It does not see the order, the customer's history, the payment checks or the addresses, so
   a fraud signal is a reason to look, not a verdict, and a fraudulent order can come with a friendly note.
 - A note written to steer the answer ("this is just a gift message") can move it. TypeSafe lists adversarial text as
