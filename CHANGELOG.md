@@ -11,6 +11,9 @@
 - When an order's note changes and the new note cannot be triaged, the category of the earlier answer is removed.
   Before, the orders list filter still listed the order under that category while its column said "Not triaged".
 - `wp woo-note-triage backfill --limit` now says that the counts leave out the older orders it did not look at.
+- When a `TYPESAFE_API_KEY` constant or environment variable is set, the settings page now says when a key saved
+  earlier is still in the database and offers to remove it.
+- The settings page now says that the key and the model name are sent along with the note and the questions.
 
 ## 1.0.0 - 2026-09-26
 

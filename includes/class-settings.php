@@ -210,7 +210,7 @@ final class Settings {
 			<?php endif; ?>
 
 			<p><?php esc_html_e( 'When a customer writes a note at checkout, this plugin asks TypeSafe\'s Jev model two questions about it: what kind of note it is (gift message, delivery instruction, question, complaint, fraud signal or other) and how soon the shop needs to act. Orders where Jev is confident get a private order note and a category you can filter by on the Orders screen. The rest are listed under "Needs review". The plugin never changes an order\'s status and never contacts the customer.', 'woo-note-triage' ); ?></p>
-			<p><?php esc_html_e( 'What is sent to api.typesafe.ai: the note text and the two questions, nothing else. Email addresses and numbers of nine or more digits in the note are replaced first, and at most 2,000 characters are sent. No name, address, email, order total or site address is sent.', 'woo-note-triage' ); ?></p>
+			<p><?php esc_html_e( 'What is sent to api.typesafe.ai: your key, the model name, the note text and the two questions, nothing else. Email addresses and numbers of nine or more digits in the note are replaced first, and at most 2,000 characters are sent. No name, address, email, order total or site address is sent.', 'woo-note-triage' ); ?></p>
 
 			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 				<input type="hidden" name="action" value="<?php echo esc_attr( self::ACTION ); ?>">
@@ -238,6 +238,9 @@ final class Settings {
 									);
 									?>
 								</p>
+								<?php if ( '' !== $saved ) : ?>
+									<p class="description"><?php esc_html_e( 'A key saved here earlier is still in the database, but it is not used while this one is set.', 'woo-note-triage' ); ?></p>
+								<?php endif; ?>
 							<?php else : ?>
 								<input type="password" id="woo-note-triage-key" name="woo_note_triage_key" value="" class="regular-text" autocomplete="new-password" spellcheck="false">
 								<?php if ( '' !== $saved ) : ?>
@@ -251,15 +254,17 @@ final class Settings {
 										);
 										?>
 									</p>
-									<p>
-										<label>
-											<input type="checkbox" name="woo_note_triage_remove_key" value="1">
-											<?php esc_html_e( 'Remove the saved key', 'woo-note-triage' ); ?>
-										</label>
-									</p>
 								<?php else : ?>
 									<p class="description"><?php esc_html_e( 'No key is saved yet. Nothing is sent until there is one. You can also define TYPESAFE_API_KEY in wp-config.php instead of saving it here.', 'woo-note-triage' ); ?></p>
 								<?php endif; ?>
+							<?php endif; ?>
+							<?php if ( '' !== $saved ) : ?>
+								<p>
+									<label>
+										<input type="checkbox" name="woo_note_triage_remove_key" value="1">
+										<?php esc_html_e( 'Remove the saved key', 'woo-note-triage' ); ?>
+									</label>
+								</p>
 							<?php endif; ?>
 						</td>
 					</tr>

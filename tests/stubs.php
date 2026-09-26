@@ -1,8 +1,8 @@
 <?php
 /**
  * Stand-ins for the few WordPress, WooCommerce, Action Scheduler and WP-CLI functions the plugin calls, so the
- * tests can run the checkout hooks, the background job, the orders list filter and the backfill command
- * without WordPress. They record what the code did.
+ * tests can run the checkout hooks, the background job, the orders list filter, the settings page and the
+ * backfill command without WordPress. They record what the code did.
  *
  * The HTTP functions throw: a test that tries to reach the network fails.
  *
@@ -69,6 +69,52 @@ namespace {
 
 	function esc_html__( $text, $domain = 'default' ): string {
 		return esc_html( $text );
+	}
+
+	function esc_html_e( $text, $domain = 'default' ): void {
+		echo esc_html( $text );
+	}
+
+	function __( $text, $domain = 'default' ): string {
+		return (string) $text;
+	}
+
+	function esc_attr( $text ): string {
+		return esc_html( $text );
+	}
+
+	function esc_url( $url ): string {
+		return esc_html( $url );
+	}
+
+	function admin_url( $path = '' ): string {
+		return 'https://shop.example/wp-admin/' . ltrim( (string) $path, '/' );
+	}
+
+	function add_query_arg( ...$args ): string {
+		$url   = (string) array_pop( $args );
+		$query = is_array( $args[0] ) ? $args[0] : array( $args[0] => $args[1] );
+		return $url . ( str_contains( $url, '?' ) ? '&' : '?' ) . http_build_query( $query );
+	}
+
+	function current_user_can( $capability ): bool {
+		return true;
+	}
+
+	function checked( $checked, $current = true, $display = true ): string {
+		$result = (string) $checked === (string) $current ? " checked='checked'" : '';
+		if ( $display ) {
+			echo $result; // phpcs:ignore WordPress.Security.EscapeOutput
+		}
+		return $result;
+	}
+
+	function wp_nonce_field( $action = -1 ): void {
+		echo '<input type="hidden" name="_wpnonce" value="fixture-nonce">';
+	}
+
+	function submit_button(): void {
+		echo '<input type="submit" name="submit" value="Save Changes">';
 	}
 
 	function sanitize_key( $key ): string {

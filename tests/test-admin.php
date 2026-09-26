@@ -1,6 +1,6 @@
 <?php
 /**
- * Settings values and the orders list filter.
+ * Settings values, the settings page and the orders list filter.
  *
  * @package Woo_Note_Triage
  */
@@ -55,6 +55,34 @@ test(
 		assert_same( 'jev-latest', Settings::model() );
 		putenv( 'TYPESAFE_MODEL=jev-1.13.0' );
 		assert_same( 'jev-1.13.0', Settings::model() );
+	}
+);
+
+test(
+	'the settings page never prints a key, and offers to remove a saved key that a constant or variable replaces',
+	static function (): void {
+		$page = static function (): string {
+			ob_start();
+			( new Settings() )->render_page();
+			return (string) ob_get_clean();
+		};
+		assert_contains( 'No key is saved yet.', $page() );
+
+		$GLOBALS['wnt_options']['woo_note_triage_api_key'] = 'fixture-saved-key-1234';
+		$html = $page();
+		assert_contains( 'A key ending in 1234 is saved.', $html );
+		assert_contains( 'name="woo_note_triage_remove_key"', $html );
+		assert_not_contains( 'fixture-saved-key', $html );
+
+		$variable = 'TYPESAFE_API_KEY';
+		putenv( "$variable=fixture-environment-key" );
+		$html = $page();
+		assert_contains( 'The key comes from the TYPESAFE_API_KEY environment variable.', $html );
+		assert_contains( 'A key saved here earlier is still in the database, but it is not used while this one is set.', $html );
+		assert_contains( 'name="woo_note_triage_remove_key"', $html );
+		assert_not_contains( 'name="woo_note_triage_key"', $html );
+		assert_not_contains( 'fixture-saved-key', $html );
+		assert_not_contains( 'fixture-environment-key', $html );
 	}
 );
 
