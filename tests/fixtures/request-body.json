@@ -1,0 +1,106 @@
+{
+    "model": "jev-latest",
+    "state": "Please leave it with the neighbour at number 12 if I'm out, or call <number>.",
+    "questions": {
+        "category": {
+            "type": "choice",
+            "instructions": {
+                "context": "The state is the text a customer typed into the order notes field while placing an order in an online shop.",
+                "question": "What kind of note is this?",
+                "focus": "If the note does more than one thing, choose the part that most needs the shop's attention."
+            },
+            "criteria": {
+                "gift-message": {
+                    "what": "Words meant for the person who receives the order, to go on a card, a tag or a packing slip.",
+                    "not_for": "Instructions to the shop or the courier about packing or delivery.",
+                    "examples": [
+                        "Happy birthday! Love from Grandma and Grandpa",
+                        "Congratulations on the new home, from everyone at the office"
+                    ]
+                },
+                "delivery-instruction": {
+                    "what": "Tells the shop or the courier how to pack the order, or where, when or how to deliver it.",
+                    "not_for": "Words meant for the person who receives the order.",
+                    "examples": [
+                        "Leave the parcel behind the side gate if nobody answers",
+                        "Please gift wrap it and leave the receipt out",
+                        "Deliver after 5 pm, the office is closed in the morning"
+                    ]
+                },
+                "question": {
+                    "what": "Asks the shop something, or asks for a change to the order, without reporting a problem.",
+                    "not_for": "Reports that something went wrong.",
+                    "examples": [
+                        "Can you put our company name on the invoice?",
+                        "Will this arrive before Friday?",
+                        "Please change the colour to navy if you have it"
+                    ]
+                },
+                "complaint": {
+                    "what": "Says something went wrong or the customer is unhappy, with this order, an earlier order or the shop.",
+                    "not_for": "Questions or change requests that do not report a problem.",
+                    "examples": [
+                        "My last order arrived broken and nobody answered my email",
+                        "This is the third time I have ordered this because the first two never arrived"
+                    ]
+                },
+                "fraud-signal": {
+                    "what": "The note contains a known warning sign of payment fraud or of a scam aimed at the shop.",
+                    "not_for": "Ordinary gift or delivery instructions, including a gift sent to someone else's address.",
+                    "examples": [
+                        "Ship it to my freight forwarder, I will send the final address after payment",
+                        "I used my uncle's card, please ship today before he checks his statement",
+                        "I paid too much by mistake, please send the difference to this other account"
+                    ]
+                },
+                "other": {
+                    "what": "Anything else: thanks, a remark, a test, or text that says nothing about this order.",
+                    "not_for": "A note that fits one of the other options.",
+                    "examples": [
+                        "Thanks!",
+                        "Love your shop",
+                        "test"
+                    ]
+                }
+            }
+        },
+        "urgency": {
+            "type": "score",
+            "instructions": {
+                "context": "The state is the text a customer typed into the order notes field while placing an order in an online shop.",
+                "question": "How soon does someone at the shop need to act on this note?"
+            },
+            "criteria": [
+                {
+                    "what": "Nothing to do: the note asks nothing of the shop.",
+                    "examples": [
+                        "Thanks!",
+                        "Love your shop"
+                    ]
+                },
+                {
+                    "what": "While packing or delivering: the shop follows the note when the order ships, and no reply is needed.",
+                    "examples": [
+                        "Happy birthday! Love from Grandma and Grandpa",
+                        "Leave the parcel behind the side gate"
+                    ]
+                },
+                {
+                    "what": "Reply within a day or two: the customer asks something or wants a check, and the order can ship as it is.",
+                    "examples": [
+                        "Can you put our company name on the invoice?",
+                        "Will this arrive before Friday?"
+                    ]
+                },
+                {
+                    "what": "Before the order ships: the order may need to change or stop, or an unhappy customer needs a reply first.",
+                    "examples": [
+                        "Wrong address, please send it to my work address instead",
+                        "My last order arrived broken and nobody answered my email",
+                        "Ship it to my freight forwarder, I will send the final address after payment"
+                    ]
+                }
+            ]
+        }
+    }
+}

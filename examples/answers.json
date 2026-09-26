@@ -1,0 +1,145 @@
+{
+  "about": "Hand-written answers standing in for Jev, in the shape of TypeSafe's API (each score answer's legend is left out). The numbers are illustrations, not recorded results. Order 1009 sits exactly at the 0.80 threshold and order 1010 just below it.",
+  "answers": {
+    "1001": {
+      "category": {
+        "type": "choice",
+        "choice": "gift-message",
+        "probabilities": { "gift-message": 0.98, "delivery-instruction": 0.01, "question": 0.0, "complaint": 0.0, "fraud-signal": 0.0, "other": 0.01 },
+        "confidence": 0.98
+      },
+      "urgency": {
+        "type": "score",
+        "score": 0.98,
+        "probabilities": { "0": 0.03, "1": 0.96, "2": 0.01, "3": 0.0 },
+        "confidence": 0.95
+      }
+    },
+    "1002": {
+      "category": {
+        "type": "choice",
+        "choice": "delivery-instruction",
+        "probabilities": { "gift-message": 0.01, "delivery-instruction": 0.97, "question": 0.0, "complaint": 0.0, "fraud-signal": 0.0, "other": 0.02 },
+        "confidence": 0.96
+      },
+      "urgency": {
+        "type": "score",
+        "score": 1.03,
+        "probabilities": { "0": 0.02, "1": 0.93, "2": 0.05, "3": 0.0 },
+        "confidence": 0.91
+      }
+    },
+    "1003": {
+      "category": {
+        "type": "choice",
+        "choice": "question",
+        "probabilities": { "gift-message": 0.0, "delivery-instruction": 0.02, "question": 0.95, "complaint": 0.0, "fraud-signal": 0.0, "other": 0.03 },
+        "confidence": 0.94
+      },
+      "urgency": {
+        "type": "score",
+        "score": 1.9,
+        "probabilities": { "0": 0.0, "1": 0.12, "2": 0.86, "3": 0.02 },
+        "confidence": 0.81
+      }
+    },
+    "1004": {
+      "category": {
+        "type": "choice",
+        "choice": "complaint",
+        "probabilities": { "gift-message": 0.0, "delivery-instruction": 0.01, "question": 0.05, "complaint": 0.94, "fraud-signal": 0.0, "other": 0.0 },
+        "confidence": 0.93
+      },
+      "urgency": {
+        "type": "score",
+        "score": 2.73,
+        "probabilities": { "0": 0.0, "1": 0.01, "2": 0.25, "3": 0.74 },
+        "confidence": 0.65
+      }
+    },
+    "1005": {
+      "category": {
+        "type": "choice",
+        "choice": "fraud-signal",
+        "probabilities": { "gift-message": 0.0, "delivery-instruction": 0.04, "question": 0.05, "complaint": 0.0, "fraud-signal": 0.91, "other": 0.0 },
+        "confidence": 0.89
+      },
+      "urgency": {
+        "type": "score",
+        "score": 2.92,
+        "probabilities": { "0": 0.0, "1": 0.01, "2": 0.06, "3": 0.93 },
+        "confidence": 0.91
+      }
+    },
+    "1006": {
+      "category": {
+        "type": "choice",
+        "choice": "fraud-signal",
+        "probabilities": { "gift-message": 0.0, "delivery-instruction": 0.3, "question": 0.02, "complaint": 0.0, "fraud-signal": 0.68, "other": 0.0 },
+        "confidence": 0.62
+      },
+      "urgency": {
+        "type": "score",
+        "score": 2.66,
+        "probabilities": { "0": 0.0, "1": 0.05, "2": 0.24, "3": 0.71 },
+        "confidence": 0.61
+      }
+    },
+    "1007": {
+      "category": {
+        "type": "choice",
+        "choice": "question",
+        "probabilities": { "gift-message": 0.0, "delivery-instruction": 0.34, "question": 0.64, "complaint": 0.0, "fraud-signal": 0.0, "other": 0.02 },
+        "confidence": 0.57
+      },
+      "urgency": {
+        "type": "score",
+        "score": 2.54,
+        "probabilities": { "0": 0.0, "1": 0.01, "2": 0.44, "3": 0.55 },
+        "confidence": 0.4
+      }
+    },
+    "1008": {
+      "category": {
+        "type": "choice",
+        "choice": "other",
+        "probabilities": { "gift-message": 0.03, "delivery-instruction": 0.0, "question": 0.0, "complaint": 0.0, "fraud-signal": 0.0, "other": 0.97 },
+        "confidence": 0.96
+      },
+      "urgency": {
+        "type": "score",
+        "score": 0.05,
+        "probabilities": { "0": 0.95, "1": 0.05, "2": 0.0, "3": 0.0 },
+        "confidence": 0.93
+      }
+    },
+    "1009": {
+      "category": {
+        "type": "choice",
+        "choice": "gift-message",
+        "probabilities": { "gift-message": 0.84, "delivery-instruction": 0.15, "question": 0.0, "complaint": 0.0, "fraud-signal": 0.0, "other": 0.01 },
+        "confidence": 0.8
+      },
+      "urgency": {
+        "type": "score",
+        "score": 1.01,
+        "probabilities": { "0": 0.01, "1": 0.97, "2": 0.02, "3": 0.0 },
+        "confidence": 0.96
+      }
+    },
+    "1010": {
+      "category": {
+        "type": "choice",
+        "choice": "complaint",
+        "probabilities": { "gift-message": 0.0, "delivery-instruction": 0.0, "question": 0.16, "complaint": 0.83, "fraud-signal": 0.0, "other": 0.01 },
+        "confidence": 0.79
+      },
+      "urgency": {
+        "type": "score",
+        "score": 2.8,
+        "probabilities": { "0": 0.0, "1": 0.01, "2": 0.18, "3": 0.81 },
+        "confidence": 0.75
+      }
+    }
+  }
+}

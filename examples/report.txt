@@ -1,0 +1,43 @@
+woo-note-triage 1.0.0
+Orders created in the last 30 days: 11. With a customer note: 10. Already triaged, skipped: 0. Sent: 10.
+Jev: model fixture, 10 requests, 11,913 input tokens (about $0.00050)
+Threshold 0.80: 7 triaged, 3 for review
+
+Triaged, most urgent first
+
+#1005  2026-09-23  fraud signal, confidence 0.89  urgency 2.92 of 3
+       Category: fraud signal 0.91, question 0.05, delivery instruction 0.04
+       Urgency: before shipping 0.93, reply soon 0.06, when packing 0.01
+#1004  2026-09-22  complaint, confidence 0.93  urgency 2.73 of 3
+       Category: complaint 0.94, question 0.05, delivery instruction 0.01
+       Urgency: before shipping 0.74, reply soon 0.25, when packing 0.01
+#1003  2026-09-21  question, confidence 0.94  urgency 1.90 of 3
+       Category: question 0.95, other 0.03, delivery instruction 0.02
+       Urgency: reply soon 0.86, when packing 0.12, before shipping 0.02
+#1002  2026-09-20  delivery instruction, confidence 0.96  urgency 1.03 of 3
+       Category: delivery instruction 0.97, other 0.02, gift message 0.01
+       Urgency: when packing 0.93, reply soon 0.05, nothing to do 0.02
+#1009  2026-09-25  gift message, confidence 0.80  urgency 1.01 of 3
+       Category: gift message 0.84, delivery instruction 0.15, other 0.01
+       Urgency: when packing 0.97, reply soon 0.02, nothing to do 0.01
+#1001  2026-09-19  gift message, confidence 0.98  urgency 0.98 of 3
+       Category: gift message 0.98, delivery instruction 0.01, other 0.01
+       Urgency: when packing 0.96, nothing to do 0.03, reply soon 0.01
+#1008  2026-09-25  other, confidence 0.96  urgency 0.05 of 3
+       Category: other 0.97, gift message 0.03
+       Urgency: nothing to do 0.95, when packing 0.05
+
+For review, most urgent first
+
+#1010  2026-09-26  complaint, confidence 0.79  urgency 2.80 of 3
+       Category: complaint 0.83, question 0.16, other 0.01
+       Urgency: before shipping 0.81, reply soon 0.18, when packing 0.01
+       Review: category confidence 0.79 is below the threshold 0.80
+#1006  2026-09-24  fraud signal, confidence 0.62  urgency 2.66 of 3
+       Category: fraud signal 0.68, delivery instruction 0.30, question 0.02
+       Urgency: before shipping 0.71, reply soon 0.24, when packing 0.05
+       Review: category confidence 0.62 is below the threshold 0.80
+#1007  2026-09-24  question, confidence 0.57  urgency 2.54 of 3
+       Category: question 0.64, delivery instruction 0.34, other 0.02
+       Urgency: before shipping 0.55, reply soon 0.44, when packing 0.01
+       Review: category confidence 0.57 is below the threshold 0.80

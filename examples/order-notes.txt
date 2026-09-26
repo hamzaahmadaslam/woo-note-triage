@@ -1,0 +1,47 @@
+Order #1001, private order note:
+Customer note triage: gift message (confidence 0.98).
+Urgency 0.98 of 3: when packing 0.96, nothing to do 0.03, reply soon 0.01.
+Category probabilities: gift message 0.98, delivery instruction 0.01, other 0.01.
+Model fixture, threshold 0.80.
+
+Order #1002, private order note:
+Customer note triage: delivery instruction (confidence 0.96).
+Urgency 1.03 of 3: when packing 0.93, reply soon 0.05, nothing to do 0.02.
+Category probabilities: delivery instruction 0.97, other 0.02, gift message 0.01.
+Model fixture, threshold 0.80.
+
+Order #1003, private order note:
+Customer note triage: question (confidence 0.94).
+Urgency 1.90 of 3: reply soon 0.86, when packing 0.12, before shipping 0.02.
+Category probabilities: question 0.95, other 0.03, delivery instruction 0.02.
+Model fixture, threshold 0.80.
+
+Order #1004, private order note:
+Customer note triage: complaint (confidence 0.93).
+Urgency 2.73 of 3: before shipping 0.74, reply soon 0.25, when packing 0.01.
+Category probabilities: complaint 0.94, question 0.05, delivery instruction 0.01.
+Model fixture, threshold 0.80.
+
+Order #1005, private order note:
+Customer note triage: fraud signal (confidence 0.89).
+Urgency 2.92 of 3: before shipping 0.93, reply soon 0.06, when packing 0.01.
+Category probabilities: fraud signal 0.91, question 0.05, delivery instruction 0.04.
+Model fixture, threshold 0.80.
+
+Order #1006: no order note, listed under Needs review (category confidence 0.62 is below the threshold 0.80).
+
+Order #1007: no order note, listed under Needs review (category confidence 0.57 is below the threshold 0.80).
+
+Order #1008, private order note:
+Customer note triage: other (confidence 0.96).
+Urgency 0.05 of 3: nothing to do 0.95, when packing 0.05.
+Category probabilities: other 0.97, gift message 0.03.
+Model fixture, threshold 0.80.
+
+Order #1009, private order note:
+Customer note triage: gift message (confidence 0.80).
+Urgency 1.01 of 3: when packing 0.97, reply soon 0.02, nothing to do 0.01.
+Category probabilities: gift message 0.84, delivery instruction 0.15, other 0.01.
+Model fixture, threshold 0.80.
+
+Order #1010: no order note, listed under Needs review (category confidence 0.79 is below the threshold 0.80).

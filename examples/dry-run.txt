@@ -1,0 +1,123 @@
+woo-note-triage 1.0.0 (dry run: nothing is sent and no order changes)
+Orders created in the last 30 days: 11. With a customer note: 10. Already triaged, skipped: 0.
+Would send 10 requests to https://api.typesafe.ai/v1/systemone, one per order: about 11,913 input tokens (about $0.00050)
+Model jev-latest, threshold 0.80
+
+Each request body is {"model", "state", "questions"}. The state is the cleaned note and nothing else.
+The questions are the same for every order:
+
+{
+    "category": {
+        "type": "choice",
+        "instructions": {
+            "context": "The state is the text a customer typed into the order notes field while placing an order in an online shop.",
+            "question": "What kind of note is this?",
+            "focus": "If the note does more than one thing, choose the part that most needs the shop's attention."
+        },
+        "criteria": {
+            "gift-message": {
+                "what": "Words meant for the person who receives the order, to go on a card, a tag or a packing slip.",
+                "not_for": "Instructions to the shop or the courier about packing or delivery.",
+                "examples": [
+                    "Happy birthday! Love from Grandma and Grandpa",
+                    "Congratulations on the new home, from everyone at the office"
+                ]
+            },
+            "delivery-instruction": {
+                "what": "Tells the shop or the courier how to pack the order, or where, when or how to deliver it.",
+                "not_for": "Words meant for the person who receives the order.",
+                "examples": [
+                    "Leave the parcel behind the side gate if nobody answers",
+                    "Please gift wrap it and leave the receipt out",
+                    "Deliver after 5 pm, the office is closed in the morning"
+                ]
+            },
+            "question": {
+                "what": "Asks the shop something, or asks for a change to the order, without reporting a problem.",
+                "not_for": "Reports that something went wrong.",
+                "examples": [
+                    "Can you put our company name on the invoice?",
+                    "Will this arrive before Friday?",
+                    "Please change the colour to navy if you have it"
+                ]
+            },
+            "complaint": {
+                "what": "Says something went wrong or the customer is unhappy, with this order, an earlier order or the shop.",
+                "not_for": "Questions or change requests that do not report a problem.",
+                "examples": [
+                    "My last order arrived broken and nobody answered my email",
+                    "This is the third time I have ordered this because the first two never arrived"
+                ]
+            },
+            "fraud-signal": {
+                "what": "The note contains a known warning sign of payment fraud or of a scam aimed at the shop.",
+                "not_for": "Ordinary gift or delivery instructions, including a gift sent to someone else's address.",
+                "examples": [
+                    "Ship it to my freight forwarder, I will send the final address after payment",
+                    "I used my uncle's card, please ship today before he checks his statement",
+                    "I paid too much by mistake, please send the difference to this other account"
+                ]
+            },
+            "other": {
+                "what": "Anything else: thanks, a remark, a test, or text that says nothing about this order.",
+                "not_for": "A note that fits one of the other options.",
+                "examples": [
+                    "Thanks!",
+                    "Love your shop",
+                    "test"
+                ]
+            }
+        }
+    },
+    "urgency": {
+        "type": "score",
+        "instructions": {
+            "context": "The state is the text a customer typed into the order notes field while placing an order in an online shop.",
+            "question": "How soon does someone at the shop need to act on this note?"
+        },
+        "criteria": [
+            {
+                "what": "Nothing to do: the note asks nothing of the shop.",
+                "examples": [
+                    "Thanks!",
+                    "Love your shop"
+                ]
+            },
+            {
+                "what": "While packing or delivering: the shop follows the note when the order ships, and no reply is needed.",
+                "examples": [
+                    "Happy birthday! Love from Grandma and Grandpa",
+                    "Leave the parcel behind the side gate"
+                ]
+            },
+            {
+                "what": "Reply within a day or two: the customer asks something or wants a check, and the order can ship as it is.",
+                "examples": [
+                    "Can you put our company name on the invoice?",
+                    "Will this arrive before Friday?"
+                ]
+            },
+            {
+                "what": "Before the order ships: the order may need to change or stop, or an unhappy customer needs a reply first.",
+                "examples": [
+                    "Wrong address, please send it to my work address instead",
+                    "My last order arrived broken and nobody answered my email",
+                    "Ship it to my freight forwarder, I will send the final address after payment"
+                ]
+            }
+        ]
+    }
+}
+
+Orders that would be sent
+
+#1001  2026-09-19  72 characters, about 1,183 tokens
+#1002  2026-09-20  84 characters, about 1,187 tokens
+#1003  2026-09-21  79 characters, about 1,185 tokens
+#1004  2026-09-22  152 characters, about 1,209 tokens
+#1005  2026-09-23  114 characters, about 1,197 tokens
+#1006  2026-09-24  135 characters, about 1,204 tokens
+#1007  2026-09-24  102 characters, about 1,193 tokens
+#1008  2026-09-25  7 characters, about 1,161 tokens
+#1009  2026-09-25  91 characters, about 1,189 tokens
+#1010  2026-09-26  139 characters, about 1,205 tokens

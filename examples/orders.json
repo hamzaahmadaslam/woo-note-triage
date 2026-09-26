@@ -1,0 +1,60 @@
+{
+  "about": "Synthetic orders invented for this example. No name, number, address or note here comes from a real shop. +44 20 7946 0958 is in a UK range set aside for fiction, and example.com addresses do not reach anyone.",
+  "orders": [
+    {
+      "order_id": 1001,
+      "date_created": "2026-09-19T09:14:00+00:00",
+      "customer_note": "Happy 7th birthday Mia! Hope you love the dinosaurs. Hugs from Auntie Jo"
+    },
+    {
+      "order_id": 1002,
+      "date_created": "2026-09-20T14:02:00+00:00",
+      "customer_note": "Please leave the parcel behind the side gate if nobody answers. The dog is friendly!"
+    },
+    {
+      "order_id": 1003,
+      "date_created": "2026-09-21T08:40:00+00:00",
+      "customer_note": "Could you put our company name and VAT number GB123456789 on the invoice? Thanks"
+    },
+    {
+      "order_id": 1004,
+      "date_created": "2026-09-22T19:25:00+00:00",
+      "customer_note": "Third time ordering this lid because the last two arrived cracked. I sent photos last week and nobody replied. Please check this one before it goes out."
+    },
+    {
+      "order_id": 1005,
+      "date_created": "2026-09-23T02:11:00+00:00",
+      "customer_note": "The card is my brother's, he said it's fine. Please send it express today, I can pay extra for the fastest option."
+    },
+    {
+      "order_id": 1006,
+      "date_created": "2026-09-24T11:48:00+00:00",
+      "customer_note": "Please ship to my forwarding company, I will email you the final address once the payment clears. Call +44 20 7946 0958 if anything is unclear."
+    },
+    {
+      "order_id": 1007,
+      "date_created": "2026-09-24T16:30:00+00:00",
+      "customer_note": "Is the blue one the same size as the green one? If not, swap it for the green. Reply to sam.example@example.com please"
+    },
+    {
+      "order_id": 1008,
+      "date_created": "2026-09-25T10:05:00+00:00",
+      "customer_note": "Thanks!"
+    },
+    {
+      "order_id": 1009,
+      "date_created": "2026-09-25T13:37:00+00:00",
+      "customer_note": "Card: Congratulations on the new job, Priya! From everyone at the studio. Gift wrap please."
+    },
+    {
+      "order_id": 1010,
+      "date_created": "2026-09-26T07:52:00+00:00",
+      "customer_note": "The blender from my last order smells like burning plastic when it runs. Is it safe? I'd like someone to check this one before you send it."
+    },
+    {
+      "order_id": 1011,
+      "date_created": "2026-09-26T09:30:00+00:00",
+      "customer_note": ""
+    }
+  ]
+}

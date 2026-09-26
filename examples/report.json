@@ -1,0 +1,314 @@
+{
+    "tool": "woo-note-triage",
+    "version": "1.0.0",
+    "dry_run": false,
+    "days": 30,
+    "threshold": 0.8,
+    "model": "fixture",
+    "orders_in_range": 11,
+    "orders_with_note": 10,
+    "skipped_already_triaged": 0,
+    "limit_reached": false,
+    "requests": 10,
+    "input_tokens": 11913,
+    "triaged": 7,
+    "review": 3,
+    "orders": [
+        {
+            "order_id": 1001,
+            "date_created": "2026-09-19T09:14:00+00:00",
+            "decision": "triaged",
+            "category": "gift-message",
+            "category_confidence": 0.98,
+            "category_probabilities": {
+                "gift-message": 0.98,
+                "delivery-instruction": 0.01,
+                "other": 0.01,
+                "question": 0.0,
+                "complaint": 0.0,
+                "fraud-signal": 0.0
+            },
+            "urgency": 0.98,
+            "urgency_level": 1,
+            "urgency_label": "when packing",
+            "urgency_confidence": 0.95,
+            "urgency_probabilities": {
+                "when packing": 0.96,
+                "nothing to do": 0.03,
+                "reply soon": 0.01,
+                "before shipping": 0.0
+            },
+            "reasons": [],
+            "threshold": 0.8,
+            "model": "fixture",
+            "input_tokens": 1183
+        },
+        {
+            "order_id": 1002,
+            "date_created": "2026-09-20T14:02:00+00:00",
+            "decision": "triaged",
+            "category": "delivery-instruction",
+            "category_confidence": 0.96,
+            "category_probabilities": {
+                "delivery-instruction": 0.97,
+                "other": 0.02,
+                "gift-message": 0.01,
+                "question": 0.0,
+                "complaint": 0.0,
+                "fraud-signal": 0.0
+            },
+            "urgency": 1.03,
+            "urgency_level": 1,
+            "urgency_label": "when packing",
+            "urgency_confidence": 0.91,
+            "urgency_probabilities": {
+                "when packing": 0.93,
+                "reply soon": 0.05,
+                "nothing to do": 0.02,
+                "before shipping": 0.0
+            },
+            "reasons": [],
+            "threshold": 0.8,
+            "model": "fixture",
+            "input_tokens": 1187
+        },
+        {
+            "order_id": 1003,
+            "date_created": "2026-09-21T08:40:00+00:00",
+            "decision": "triaged",
+            "category": "question",
+            "category_confidence": 0.94,
+            "category_probabilities": {
+                "question": 0.95,
+                "other": 0.03,
+                "delivery-instruction": 0.02,
+                "gift-message": 0.0,
+                "complaint": 0.0,
+                "fraud-signal": 0.0
+            },
+            "urgency": 1.9,
+            "urgency_level": 2,
+            "urgency_label": "reply soon",
+            "urgency_confidence": 0.81,
+            "urgency_probabilities": {
+                "reply soon": 0.86,
+                "when packing": 0.12,
+                "before shipping": 0.02,
+                "nothing to do": 0.0
+            },
+            "reasons": [],
+            "threshold": 0.8,
+            "model": "fixture",
+            "input_tokens": 1185
+        },
+        {
+            "order_id": 1004,
+            "date_created": "2026-09-22T19:25:00+00:00",
+            "decision": "triaged",
+            "category": "complaint",
+            "category_confidence": 0.93,
+            "category_probabilities": {
+                "complaint": 0.94,
+                "question": 0.05,
+                "delivery-instruction": 0.01,
+                "gift-message": 0.0,
+                "fraud-signal": 0.0,
+                "other": 0.0
+            },
+            "urgency": 2.73,
+            "urgency_level": 3,
+            "urgency_label": "before shipping",
+            "urgency_confidence": 0.65,
+            "urgency_probabilities": {
+                "before shipping": 0.74,
+                "reply soon": 0.25,
+                "when packing": 0.01,
+                "nothing to do": 0.0
+            },
+            "reasons": [],
+            "threshold": 0.8,
+            "model": "fixture",
+            "input_tokens": 1209
+        },
+        {
+            "order_id": 1005,
+            "date_created": "2026-09-23T02:11:00+00:00",
+            "decision": "triaged",
+            "category": "fraud-signal",
+            "category_confidence": 0.89,
+            "category_probabilities": {
+                "fraud-signal": 0.91,
+                "question": 0.05,
+                "delivery-instruction": 0.04,
+                "gift-message": 0.0,
+                "complaint": 0.0,
+                "other": 0.0
+            },
+            "urgency": 2.92,
+            "urgency_level": 3,
+            "urgency_label": "before shipping",
+            "urgency_confidence": 0.91,
+            "urgency_probabilities": {
+                "before shipping": 0.93,
+                "reply soon": 0.06,
+                "when packing": 0.01,
+                "nothing to do": 0.0
+            },
+            "reasons": [],
+            "threshold": 0.8,
+            "model": "fixture",
+            "input_tokens": 1197
+        },
+        {
+            "order_id": 1006,
+            "date_created": "2026-09-24T11:48:00+00:00",
+            "decision": "review",
+            "category": "fraud-signal",
+            "category_confidence": 0.62,
+            "category_probabilities": {
+                "fraud-signal": 0.68,
+                "delivery-instruction": 0.3,
+                "question": 0.02,
+                "gift-message": 0.0,
+                "complaint": 0.0,
+                "other": 0.0
+            },
+            "urgency": 2.66,
+            "urgency_level": 3,
+            "urgency_label": "before shipping",
+            "urgency_confidence": 0.61,
+            "urgency_probabilities": {
+                "before shipping": 0.71,
+                "reply soon": 0.24,
+                "when packing": 0.05,
+                "nothing to do": 0.0
+            },
+            "reasons": [
+                "category confidence 0.62 is below the threshold 0.80"
+            ],
+            "threshold": 0.8,
+            "model": "fixture",
+            "input_tokens": 1204
+        },
+        {
+            "order_id": 1007,
+            "date_created": "2026-09-24T16:30:00+00:00",
+            "decision": "review",
+            "category": "question",
+            "category_confidence": 0.57,
+            "category_probabilities": {
+                "question": 0.64,
+                "delivery-instruction": 0.34,
+                "other": 0.02,
+                "gift-message": 0.0,
+                "complaint": 0.0,
+                "fraud-signal": 0.0
+            },
+            "urgency": 2.54,
+            "urgency_level": 3,
+            "urgency_label": "before shipping",
+            "urgency_confidence": 0.4,
+            "urgency_probabilities": {
+                "before shipping": 0.55,
+                "reply soon": 0.44,
+                "when packing": 0.01,
+                "nothing to do": 0.0
+            },
+            "reasons": [
+                "category confidence 0.57 is below the threshold 0.80"
+            ],
+            "threshold": 0.8,
+            "model": "fixture",
+            "input_tokens": 1193
+        },
+        {
+            "order_id": 1008,
+            "date_created": "2026-09-25T10:05:00+00:00",
+            "decision": "triaged",
+            "category": "other",
+            "category_confidence": 0.96,
+            "category_probabilities": {
+                "other": 0.97,
+                "gift-message": 0.03,
+                "delivery-instruction": 0.0,
+                "question": 0.0,
+                "complaint": 0.0,
+                "fraud-signal": 0.0
+            },
+            "urgency": 0.05,
+            "urgency_level": 0,
+            "urgency_label": "nothing to do",
+            "urgency_confidence": 0.93,
+            "urgency_probabilities": {
+                "nothing to do": 0.95,
+                "when packing": 0.05,
+                "reply soon": 0.0,
+                "before shipping": 0.0
+            },
+            "reasons": [],
+            "threshold": 0.8,
+            "model": "fixture",
+            "input_tokens": 1161
+        },
+        {
+            "order_id": 1009,
+            "date_created": "2026-09-25T13:37:00+00:00",
+            "decision": "triaged",
+            "category": "gift-message",
+            "category_confidence": 0.8,
+            "category_probabilities": {
+                "gift-message": 0.84,
+                "delivery-instruction": 0.15,
+                "other": 0.01,
+                "question": 0.0,
+                "complaint": 0.0,
+                "fraud-signal": 0.0
+            },
+            "urgency": 1.01,
+            "urgency_level": 1,
+            "urgency_label": "when packing",
+            "urgency_confidence": 0.96,
+            "urgency_probabilities": {
+                "when packing": 0.97,
+                "reply soon": 0.02,
+                "nothing to do": 0.01,
+                "before shipping": 0.0
+            },
+            "reasons": [],
+            "threshold": 0.8,
+            "model": "fixture",
+            "input_tokens": 1189
+        },
+        {
+            "order_id": 1010,
+            "date_created": "2026-09-26T07:52:00+00:00",
+            "decision": "review",
+            "category": "complaint",
+            "category_confidence": 0.79,
+            "category_probabilities": {
+                "complaint": 0.83,
+                "question": 0.16,
+                "other": 0.01,
+                "gift-message": 0.0,
+                "delivery-instruction": 0.0,
+                "fraud-signal": 0.0
+            },
+            "urgency": 2.8,
+            "urgency_level": 3,
+            "urgency_label": "before shipping",
+            "urgency_confidence": 0.75,
+            "urgency_probabilities": {
+                "before shipping": 0.81,
+                "reply soon": 0.18,
+                "when packing": 0.01,
+                "nothing to do": 0.0
+            },
+            "reasons": [
+                "category confidence 0.79 is below the threshold 0.80"
+            ],
+            "threshold": 0.8,
+            "model": "fixture",
+            "input_tokens": 1205
+        }
+    ]
+}

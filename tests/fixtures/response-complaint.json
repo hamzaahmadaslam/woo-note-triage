@@ -1,0 +1,31 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "category": {
+      "type": "choice",
+      "choice": "complaint",
+      "confidence": 0.9,
+      "probabilities": {
+        "gift-message": 0.0,
+        "delivery-instruction": 0.01,
+        "question": 0.07,
+        "complaint": 0.92,
+        "fraud-signal": 0.0,
+        "other": 0.0
+      }
+    },
+    "urgency": {
+      "type": "score",
+      "score": 2.71,
+      "confidence": 0.62,
+      "legend": {
+        "0": { "what": "Nothing to do: the note asks nothing of the shop.", "examples": ["Thanks!", "Love your shop"] },
+        "1": { "what": "While packing or delivering: the shop follows the note when the order ships, and no reply is needed.", "examples": ["Happy birthday! Love from Grandma and Grandpa", "Leave the parcel behind the side gate"] },
+        "2": { "what": "Reply within a day or two: the customer asks something or wants a check, and the order can ship as it is.", "examples": ["Can you put our company name on the invoice?", "Will this arrive before Friday?"] },
+        "3": { "what": "Before the order ships: the order may need to change or stop, or an unhappy customer needs a reply first.", "examples": ["Wrong address, please send it to my work address instead", "My last order arrived broken and nobody answered my email", "Ship it to my freight forwarder, I will send the final address after payment"] }
+      },
+      "probabilities": { "0": 0.0, "1": 0.01, "2": 0.27, "3": 0.72 }
+    }
+  },
+  "usage": { "input_tokens": 1034, "output_tokens": 41 }
+}

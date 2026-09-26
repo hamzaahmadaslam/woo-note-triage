@@ -1,0 +1,10 @@
+# Keep LF line endings everywhere so the example outputs compare byte for byte on every system.
+* text=auto eol=lf
+
+# Leave development files out of the ZIP that GitHub builds ("Download ZIP" and release archives),
+# so the plugin folder on a site holds only what WordPress runs.
+/.github export-ignore
+/.gitattributes export-ignore
+/.gitignore export-ignore
+/examples export-ignore
+/tests export-ignore
