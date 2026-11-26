@@ -60,6 +60,12 @@ Or clone it into the plugins folder:
 git clone https://github.com/hamzaahmadaslam/woo-note-triage.git wp-content/plugins/woo-note-triage
 ```
 
+With Composer, on a site that installs plugins through `composer/installers` (Bedrock, for example):
+
+```sh
+composer require hamzaahmadaslam/woo-note-triage
+```
+
 Then open WooCommerce > Note triage and paste your key. To keep the key out of the database, define it in
 `wp-config.php` instead:
 

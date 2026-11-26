@@ -1,0 +1,22 @@
+{
+    "name": "hamzaahmadaslam/woo-note-triage",
+    "description": "WooCommerce plugin that sorts the notes customers write at checkout into gift messages, delivery instructions, questions, complaints and fraud signals, and ranks them by urgency with TypeSafe's Jev model.",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "homepage": "https://hamzaahmadaslam.com/open-source/woo-note-triage",
+    "authors": [
+        {
+            "name": "Hamza Ahmad Aslam",
+            "homepage": "https://hamzaahmadaslam.com"
+        }
+    ],
+    "keywords": ["wordpress", "wordpress-plugin", "woocommerce", "checkout", "order-notes", "triage", "typesafe", "jev"],
+    "support": {
+        "issues": "https://github.com/hamzaahmadaslam/woo-note-triage/issues",
+        "source": "https://github.com/hamzaahmadaslam/woo-note-triage"
+    },
+    "require": {
+        "php": ">=8.1",
+        "composer/installers": "^1.0 || ^2.0"
+    }
+}
